@@ -1,8 +1,8 @@
 package az.transfer.moneytransfersystem.controller;
 
 
-import az.transfer.moneytransfersystem.Service.UserService;
-import az.transfer.moneytransfersystem.dao.entity.UserEntity;
+import az.transfer.moneytransfersystem.dto.response.UserResponseDto;
+import az.transfer.moneytransfersystem.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +18,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("{id}")
-    public UserEntity getUserById(@PathVariable Long id){
+    public UserResponseDto getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
