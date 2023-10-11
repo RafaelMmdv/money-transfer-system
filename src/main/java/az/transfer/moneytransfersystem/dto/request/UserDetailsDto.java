@@ -1,5 +1,7 @@
 package az.transfer.moneytransfersystem.dto.request;
 
+import az.transfer.moneytransfersystem.dto.response.UserSecurityResponseDto;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -9,10 +11,14 @@ import java.util.Collection;
 
 
 @Getter
+@Builder
 @RequiredArgsConstructor
 
 public class UserDetailsDto implements UserDetails {
 
+    private final UserSecurityResponseDto userSecurityResponseDto;
+
+    private final Collection<? extends GrantedAuthority> authorities;
     private final boolean isEnabled;
     private final boolean isCredentialsNonExpired;
     private final boolean isAccountNonLocked;
@@ -26,12 +32,15 @@ public class UserDetailsDto implements UserDetails {
 
     @Override
     public String getPassword() {
-        return null;
+
+        return userSecurityResponseDto.getPassword();
+
     }
 
     @Override
     public String getUsername() {
-        return null;
+
+        return userSecurityResponseDto.getUsername();
     }
 
 }
