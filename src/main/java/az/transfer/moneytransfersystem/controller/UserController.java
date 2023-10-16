@@ -4,13 +4,16 @@ package az.transfer.moneytransfersystem.controller;
 import az.transfer.moneytransfersystem.dto.response.UserResponseDto;
 import az.transfer.moneytransfersystem.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import java.util.Set;
 
 @RestController
-@RequestMapping("v1/users")
+@EnableWebMvc
+@RequestMapping(value = "v1/users")
 @RequiredArgsConstructor
 
 public class UserController {
@@ -21,5 +24,12 @@ public class UserController {
     public UserResponseDto getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
+
+    @PutMapping("{id}/roles")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void addRolesToUser(@PathVariable Long id, @RequestParam Set<Long> roleIds){
+        userService.addRolesToUser(id, roleIds);
+    }
+
 
 }

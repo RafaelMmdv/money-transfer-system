@@ -42,5 +42,5 @@ public class UserDetailsDto implements UserDetails {
 
         return userSecurityResponseDto.getUsername();
     }
-
 }
+
