@@ -25,15 +25,14 @@ import java.util.Set;
 
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
-public class UserSecurityDetailsService<UsersEntity> implements UserDetailsService {
+public class UserSecurityDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
     @PostConstruct
- 
+    @Transactional
     public void createAdminForManagement(){
         if (userRepository.findByUsername("RafaelM").isEmpty()){
             userRepository.save(UserEntity

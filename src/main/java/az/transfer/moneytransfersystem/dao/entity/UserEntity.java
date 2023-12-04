@@ -4,7 +4,6 @@ package az.transfer.moneytransfersystem.dao.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -49,8 +48,5 @@ public class UserEntity {
 
     @ToString.Exclude
 private Set<RoleEntity> roles;
-
-
-
 
 }
