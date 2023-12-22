@@ -6,6 +6,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -16,6 +19,12 @@ import lombok.*;
 @Table(name = "user_details")
 public class UserDetailsEntity {
 
+
     @Id
     private Long id;
+
+    private BigDecimal amount;
+    private LocalDateTime createDate;
+
+
 }

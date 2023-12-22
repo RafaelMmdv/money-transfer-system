@@ -14,23 +14,21 @@ import java.time.LocalDateTime;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "transfers")
-public class TransferEntity {
+@Table(name = "accounts")
 
+public class AccountEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
 
-    private Long debtorAccountId;
-    private Long creditorAmountId;
+    private String cif;
+    private BigDecimal amount;
+    private String currency;
+    private LocalDateTime createDate;
 
-    private BigDecimal debtorAmount; //Recieve
-    private BigDecimal creditAmount; //Send
-
-    private String debtorCurrency;
-    private String creditorCurrency;
+    private Integer active; //default1
 
 
 }
