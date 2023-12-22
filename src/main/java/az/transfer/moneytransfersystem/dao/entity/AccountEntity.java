@@ -30,5 +30,9 @@ public class AccountEntity {
 
     private Integer active; //default1
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity users;
+
 
 }

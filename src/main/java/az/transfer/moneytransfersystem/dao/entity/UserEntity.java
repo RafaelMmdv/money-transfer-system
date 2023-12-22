@@ -4,6 +4,7 @@ package az.transfer.moneytransfersystem.dao.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,6 +26,14 @@ public class UserEntity {
     private String password;
     private String username;
     private String surname;
+
+    @OneToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = {
+
+            CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH
+    })
+
+    private List<AccountEntity> accounts;
 
     @ManyToMany(fetch = FetchType.LAZY,
     cascade = {
