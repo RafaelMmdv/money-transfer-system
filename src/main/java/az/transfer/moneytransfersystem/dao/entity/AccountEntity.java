@@ -3,6 +3,7 @@ package az.transfer.moneytransfersystem.dao.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -26,6 +27,8 @@ public class AccountEntity {
     private String cif;
     private BigDecimal amount;
     private String currency;
+
+    @CreationTimestamp
     private LocalDateTime createDate;
 
     private Integer active; //default1

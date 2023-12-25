@@ -3,7 +3,9 @@ package az.transfer.moneytransfersystem.dao.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -26,6 +28,10 @@ public class UserEntity {
     private String password;
     private String username;
     private String surname;
+
+    @CreationTimestamp
+    private LocalDateTime createDate;
+
 
     @OneToMany(mappedBy = "users", fetch = FetchType.LAZY, cascade = {
 
