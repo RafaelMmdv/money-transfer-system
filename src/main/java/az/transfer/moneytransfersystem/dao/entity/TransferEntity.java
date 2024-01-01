@@ -33,6 +33,8 @@ public class TransferEntity {
     private String debtorCurrency;
     private String creditorCurrency;
 
+    private String state; //SENT, CREATED, RECEIVED
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
